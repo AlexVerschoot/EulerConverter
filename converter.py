@@ -10,6 +10,11 @@ from math import radians
 class toMatrix():
     @staticmethod
     def toRotXMatrix(angleInDegrees):
+        """
+        Transforms an X angle in it's 3x3 rotation matrix
+        @param angleInDegrees: angle in degrees
+        @type angleInDegrees:int/double/float
+        """
         angleInRadians = radians(angleInDegrees)
         return [
             [1,0,0],
@@ -19,6 +24,11 @@ class toMatrix():
         
     @staticmethod
     def toRotYMatrix(angleInDegrees):
+        """
+        Transforms an Y angle in it's 3x3 rotation matrix
+        @param angleInDegrees: angle in degrees
+        @type angleInDegrees:int/double/float
+        """
         angleInRadians = radians(angleInDegrees)
         return [
             [cos(angleInRadians), 0, sin(angleInRadians)],
@@ -28,6 +38,11 @@ class toMatrix():
         
     @staticmethod
     def toRotZMatrix(angleInDegrees):
+        """
+        Transforms an X angle in it's 3x3 rotation matrix
+        @param angleInDegrees: angle in degrees
+        @type angleInDegrees:int/double/float
+        """
         angleInRadians = radians(angleInDegrees)
         return [
             [cos(angleInRadians), -sin(angleInRadians), 0],
