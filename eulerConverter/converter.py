@@ -10,11 +10,20 @@ from math import radians
 class toMatrix():
     @staticmethod
     def toRotXMatrix(angleInDegrees):
-        angleInDegrees = radians(angleInDegrees)
+        angleInRadians = radians(angleInDegrees)
         return [
             [1,0,0],
-            [0, cos(angleInDegrees), -sin(angleInDegrees)],
-            [0, sin(angleInDegrees), cos(angleInDegrees)]
+            [0, cos(angleInRadians), -sin(angleInRadians)],
+            [0, sin(angleInRadians), cos(angleInRadians)]
+            ]
+        
+    @staticmethod
+    def toRotYMatrix(angleInDegrees):
+        angleInRadians = radians(angleInDegrees)
+        return [
+            [cos(angleInRadians), 0, sin(angleInRadians)],
+            [0,1,0],
+            [-sin(angleInRadians), 0, cos(angleInRadians)]
             ]
 
 if __name__ == '__main__':
