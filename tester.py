@@ -9,9 +9,9 @@ from converter import toMatrix, matrixOperations
 
 def round_3x3_matrix(inputMatrix):
     return [
-            [ '%.7f' % elem for elem in inputMatrix[0] ],
-            [ '%.7f' % elem for elem in inputMatrix[1] ],
-            [ '%.7f' % elem for elem in inputMatrix[2] ]
+            [ '%.5f' % elem for elem in inputMatrix[0] ],
+            [ '%.5f' % elem for elem in inputMatrix[1] ],
+            [ '%.5f' % elem for elem in inputMatrix[2] ]
             ]
 
 class Test(unittest.TestCase):
@@ -254,6 +254,33 @@ class Test(unittest.TestCase):
             [1020,1260,1500]
             ]
         self.assertEqual(matrixOperations.matrixmult(A,B), result, "Matrix multiplication is faulty")
+
+    def test_get_rotation_matrix(self):
+        with self.assertRaises(ValueError):
+            toMatrix.getRotationMatrix("A", "Y", "Z", 0, 0, 0)
+            
+        with self.assertRaises(ValueError):
+            toMatrix.getRotationMatrix("X", "B", "Z", 0, 0, 0)
+            
+        with self.assertRaises(ValueError):
+            toMatrix.getRotationMatrix("X", "Y", "C", 0, 0, 0)
+            
+        expected_result = [
+            [0.9512513, -0.2548870,  0.1736482],
+            [0.2724529,  0.9583331, -0.0858316],
+            [-0.1445354,  0.1289584,  0.9810603]
+            ]
+        result = toMatrix.getRotationMatrix("X", "Y", "Z", 5, 10, 15)
+        self.assertEqual(round_3x3_matrix(expected_result), round_3x3_matrix(result), "String multiplication invalid")
+        
+        expected_result = [
+            [0.9512513, -0.2432154,  0.1896506],
+            [0.2548870,  0.9661673, -0.0394135],
+            [-0.1736482,  0.0858316,  0.9810603]
+            ]
+        result = toMatrix.getRotationMatrix("Z", "Y", "X", 15, 10, 5)
+        self.assertEqual(round_3x3_matrix(expected_result), round_3x3_matrix(result), "String multiplication invalid")
+        
         
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
