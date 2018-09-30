@@ -7,6 +7,16 @@ Created on Sep 30, 2018
 from math import sin, cos
 from math import radians
 
+class matrixOperations():
+    @staticmethod
+    def matrixmult (A, B):
+        C = [[0 for row in range(len(B[0]))] for col in range(len(A))]
+        for i in range(len(A)):
+            for j in range(len(B[0])):
+                for k in range(len(B)):
+                    C[i][j] += A[i][k]*B[k][j]
+        return C
+
 class toMatrix():
     @staticmethod
     def toRotXMatrix(angleInDegrees):
@@ -51,4 +61,6 @@ class toMatrix():
             ]
 
 if __name__ == '__main__':
+    #print(toMatrix.toRotXMatrix(90)*toMatrix.toRotYMatrix(90))
+    
     pass
