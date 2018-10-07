@@ -1,5 +1,5 @@
 # EulerConverter
-Convert any sequence of euler/Tait–Bryan angles into a ZXZ euler angle. Completely written in python. The only depency is math.
+Convert any sequence of Euler/Tait–Bryan angles into a ZXZ euler angle. Completely written in python. The only depency is math.
 
 Example code :
 from converter import toMatrix
