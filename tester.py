@@ -281,6 +281,50 @@ class Test(unittest.TestCase):
         result = toMatrix.getRotationMatrix("Z", "Y", "X", 15, 10, 5)
         self.assertEqual(round_3x3_matrix(expected_result), round_3x3_matrix(result), "String multiplication invalid")
         
+    def test_to_zxz_method(self):
+        inputAngles = (0,0,0)
+        result = toMatrix.convertEulerToZXZ("Z", "X", "Z", inputAngles[0], inputAngles[1], inputAngles[2])
+        self.assertEqual(inputAngles, result, "Conversion to ZXZ failed")
+        
+        inputAngles = (0,30,0)
+        result = toMatrix.convertEulerToZXZ("Z", "X", "Z", inputAngles[0], inputAngles[1], inputAngles[2])
+        self.assertEqual(inputAngles, result, "Conversion to ZXZ failed")
+        
+        inputAngles = (0,45,0)
+        result = toMatrix.convertEulerToZXZ("Z", "X", "Z", inputAngles[0], inputAngles[1], inputAngles[2])
+        self.assertEqual(inputAngles, result, "Conversion to ZXZ failed")
+        
+        inputAngles = (0,60,0)
+        result = toMatrix.convertEulerToZXZ("Z", "X", "Z", inputAngles[0], inputAngles[1], inputAngles[2])
+        self.assertEqual(inputAngles, result, "Conversion to ZXZ failed")
+        
+        inputAngles = (0,75,0)
+        result = toMatrix.convertEulerToZXZ("Z", "X", "Z", inputAngles[0], inputAngles[1], inputAngles[2])
+        self.assertEqual(inputAngles, result, "Conversion to ZXZ failed")
+        
+        inputAngles = (0,90,0)
+        result = toMatrix.convertEulerToZXZ("Z", "X", "Z", inputAngles[0], inputAngles[1], inputAngles[2])
+        self.assertEqual(inputAngles, result, "Conversion to ZXZ failed")
+        
+        inputAngles = (30,30,0)
+        result = toMatrix.convertEulerToZXZ("Z", "X", "Z", inputAngles[0], inputAngles[1], inputAngles[2])
+        self.assertEqual(inputAngles, result, "Conversion to ZXZ failed")
+        
+        inputAngles = (45,30,0)
+        result = toMatrix.convertEulerToZXZ("Z", "X", "Z", inputAngles[0], inputAngles[1], inputAngles[2])
+        self.assertEqual(inputAngles, result, "Conversion to ZXZ failed")
+        
+        inputAngles = (60,30,0)
+        result = toMatrix.convertEulerToZXZ("Z", "X", "Z", inputAngles[0], inputAngles[1], inputAngles[2])
+        self.assertEqual(inputAngles, result, "Conversion to ZXZ failed")
+        
+        inputAngles = (0,90,90)
+        result = toMatrix.convertEulerToZXZ("Z", "X", "Z", inputAngles[0], inputAngles[1], inputAngles[2])
+        self.assertEqual(inputAngles, result, "Conversion to ZXZ failed")
+        
+        inputAngles = (90,90,90)
+        result = toMatrix.convertEulerToZXZ("Z", "X", "Z", inputAngles[0], inputAngles[1], inputAngles[2])
+        self.assertEqual(inputAngles, result, "Conversion to ZXZ failed")
         
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
